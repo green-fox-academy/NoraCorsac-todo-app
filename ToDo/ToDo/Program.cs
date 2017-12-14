@@ -13,7 +13,7 @@ namespace ToDo
         {
             var fh = new FileHandler();
             var print = new Print();
-            
+
 
             if (args.Length == 0)
             {
@@ -21,9 +21,42 @@ namespace ToDo
             }
             else if (args.Contains("-l"))
             {
-                fh.AddLines();
+                if (args.Length > 0)
+                {
+                    print.PrintText();
+                }
+                else
+                {
+                    Console.WriteLine("No todos for today! :)");
+                }
             }
-            //Console.ReadLine();
+            else if (args.Contains("-a"))
+            {
+                if (args.Length == 1)
+                {
+                    print.Error();
+                }
+                else
+                {
+                    Console.WriteLine("Unable to add: no task provided");
+                }
+            }
+            else if (args.Contains("-r"))
+            {
+                if (args.Length == 1)
+                {
+                    print.ErrorIndex();
+                }
+                else
+                {
+                    fh.RemoveLines(Int32.Parse(args[1]));
+                }
+            }
+            else if (args.Contains("-c"))
+            {
+
+            }
+           
         }
     }
 }

@@ -21,5 +21,9 @@ namespace ToDo
                 " -r   Removes an task\n" +
                 " -c   Completes an task");
         }
+        public void PrintText()
+        {
+
+        }
     }
 }
